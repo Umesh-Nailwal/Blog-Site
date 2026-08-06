@@ -14,14 +14,14 @@
 <body>
   <header class="top-bar">
     <div class="top-heading">
-      <img width="16" src="/un-logo.jpg" alt="logo">
+      <img class="logo" width="16" src="/un-logo.jpg" alt="logo">
       <span class="site-name">BlogSphere</span>
     </div>
-    <nav class="nav-bar">
-      <ul>
+    <nav>
+      <ul class="nav-bar">
         <li><a class="nav-link" href="/">Home</a></li>
         <li><a class="nav-link" href="#">Blogs</a></li>
-        <li><a class="nav-link" href="/add_blog.html">Add Blog</a></li>
+        <li><a class="nav-link" href="/create_blog.html">Create Blog</a></li>
       </ul>
     </nav>
   </header>
@@ -30,22 +30,23 @@
     <section class="hero-section">
       <h1>Browse Our Resource</h1>
       <p>We provide tips ans resources from industry leaders. For real</p>
-      <a href="/blogs" class="btn">Explore Blogs</a>
+      <a href="/blogs" class="anchor link">Explore Blogs</a>
     </section>
     
     <article class="featured-blog">
+        <section class="blog-meta-data">
       <section class="blog-details">
         <div>
-          <h2 class="blog-title">Blog Title</h2>
-          <p class="blog-slug">Blog short description</p>
+          <h2 class="blog-title">Basics Of Web Development & Backend Development</h2>
+          <p class="blog-summary">​Backend Development handles the behind-the-scenes logic, managing databases, server configurations, and application security to power the frontend.</p>
         </div>
-        <a href="#" class="link">See Blog</a>
+        <a href="#" class="redirect link" style="color:#f7f7f7;">See Blog</a>
       </section>
-      <section >
-        <div>
+      <section class="blog-meta" >
+        <div class="blog-meta-header">
         <div class="author-details">
-          <img class="author-photo" src="" alt="author-photo">
-          <span class="author-name">Author Name</span>
+          <img width="40" class="author-photo" src="/authors/author1.jpeg" alt="author-photo">
+          <span class="author-name">Black Devil</span>
         </div>
         <div class="blog-date">
           <i class="fa-regular fa-calendar" style="color: rgb(224, 228, 233);"></i>
@@ -54,10 +55,11 @@
       </div>
         
         <div class="blog-categories">
-          <span class="blog-category">Category1</span>
-          <span class="blog-category">Category2</span>
+          <span class="blog-category">Web Development</span>
+          <span class="blog-category">Backend Development</span>
         </div>
       </section>
+     </section>
     </article>
     
     <section class="filters">
@@ -70,21 +72,74 @@
         </ul>
       </nav>
       <form class="search-bar" action="/" method="GET">
-        <input type="text" name="q" placeholder="Searching...">
+        <input class="input-search-bar" type="text" name="q" placeholder="Searching...">
       </form>
     </section>
     
     <section class="blog-feed">
-      
       <article class="blog">
+          <div class="image-meta">
+              <img width="400" class="blog-photo" src="/blog2.jpeg" alt="blog2.jpeg">
+          </div>
+              
         <section class="blog-details">
-          <span class="blog-category">Blog Category</span>
-          <h2>Blog Title</h2>
-          <p class="blog-description">Blog description</p>
+          <p class="blog-meta-categories">
+              <span class="blog-category">Frontend Developer</span>
+            </p>
+          <h2 >Frontend Basics And Tips</h2>
+          <p class="blog-summary">Blog description</p>
         </section>
-        <section>
+        <section class="author-meta-data">
           <div class="author-details">
-            <img class="author-photo" src="" alt="author-photo">
+            <img width="32" class="author-photo" src="/authors/author1.jpeg" alt="author-photo">
+            <span class="author-name">Author Name</span>
+          </div>
+          <div class="blog-date">
+            <span class="blog-posted-date">4 Aug,2026</span>
+          </div>
+        </section>
+      </article>
+        
+        
+      <article class="blog">
+          <div class="image-meta">
+              <img width="400" class="blog-photo" src="/blog2.jpeg" alt="blog2.jpeg">
+          </div>
+              
+        <section class="blog-details">
+          <p class="blog-meta-categories">
+              <span class="blog-category">Frontend Developer</span>
+            </p>
+          <h2 >Frontend Basics And Tips</h2>
+          <p class="blog-summary">Blog description</p>
+        </section>
+        <section class="author-meta-data">
+          <div class="author-details">
+            <img width="32" class="author-photo" src="/authors/author1.jpeg" alt="author-photo">
+            <span class="author-name">Author Name</span>
+          </div>
+          <div class="blog-date">
+            <span class="blog-posted-date">4 Aug,2026</span>
+          </div>
+        </section>
+      </article>
+        
+        
+     <article class="blog">
+          <div class="image-meta">
+              <img width="400" class="blog-photo" src="/blog2.jpeg" alt="blog2.jpeg">
+          </div>
+              
+        <section class="blog-details">
+          <p class="blog-meta-categories">
+              <span class="blog-category">Frontend Developer</span>
+            </p>
+          <h2 >Frontend Basics And Tips</h2>
+          <p class="blog-summary">Blog description</p>
+        </section>
+        <section class="author-meta-data">
+          <div class="author-details">
+            <img width="32" class="author-photo" src="/authors/author1.jpeg" alt="author-photo">
             <span class="author-name">Author Name</span>
           </div>
           <div class="blog-date">
@@ -98,31 +153,31 @@
   
   <footer>
     <div>
-      <img width="16" class="logo" src="/un-logo.jpg" alt="logo">
+      <img width="16" class="logo" src="/un-logo-black.jpg" alt="logo">
       <span class="site-name">BlogSphere</span>
     </div>
     <div class="footer-links">
       <ul>
-        <li><a class="link" href="#">Home</a></li>
+        <li><a class="link" href="/">Home</a></li>
         <li><a class="link" href="#">Blog</a></li>
         <li><a class="link" href="#">About</a></li>
         <li><a class="link" href="#">ContactUs</a></li>
       </ul>
     </div>
     <hr>
-    <div >
+    <div class="footer-end-meta">
       <p class="copyrights">&copy;Copyright 2026 BlogSphere. All Rights Reserved.</p>
       <ul class="media-links">
-        <li><a class="social-links" href="#">
+        <li><a class="social-links" href="#" aria-label="Facebook">
           <i class="fa-brands fa-facebook" style="color: rgb(224, 228, 233);"></i>
         </a></li>
-        <li><a class="social-links" href="#">
+        <li><a class="social-links" href="#" aria-label="Twitter">
           <i class="fa-brands fa-x-twitter" style="color: rgb(224, 228, 233);"></i>
         </a></li>
-        <li><a class="social-links" href="#">
+        <li><a class="social-links" href="#" aria-label="Instagram">
           <i class="fa-brands fa-instagram" style="color: rgb(224, 228, 233);"></i>
         </a></li>
-        <li><a class="social-links" href="#">
+        <li><a class="social-links" href="#" aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin" style="color: rgb(224, 228, 233);"></i>
         </a></li>
       </ul>

@@ -4,7 +4,9 @@ const path = require('path')
 const PORT = 3000
 
 app.use(express.static(path.join(__dirname,'public')))
-
+app.use(express.static(path.join(__dirname,'uploads'),{
+    maxAge : '1d'
+}))
 app.get('/',(req,res) => {
     res.sendFile(path.join(__dirname,'public','index.html'))
 })
