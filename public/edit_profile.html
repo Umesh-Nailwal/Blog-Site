@@ -8,43 +8,66 @@
   <link rel="icon" href="/un-logo.jpg">
   <link rel="stylesheet" href="/style.css">
   <script src="https://kit.fontawesome.com/1b8a3d6871.js" crossorigin="anonymous"></script>
-  <title>Register - BlogSphere</title>
+  <title>Edit Profile - BlogSphere</title>
 </head>
 <body>
-  <header>
-    <section class="top-heading" style="justify-content:left;">
-    <img width="16" src="/un-logo.jpg" alt="website logo">
-    <a class="link" href="/">BlogSphere</a>
-    </section>
+  
+ <header class="top-bar">
+    <div class="top-heading">
+      <img class="logo" width="16" src="/un-logo.jpg" alt="logo">
+      <span class="site-name">BlogSphere</span>
+    </div>
+   <button class="hamburger-btn" id="navToggle" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+    <nav class="nav-bar" id="nav-menu">
+      <ul class="vertical list">
+        <li><a class="nav-link" href="/">Home</a></li>
+        <li><a class="nav-link" href="/blogs.html">Blogs</a></li>
+        <li><a class="nav-link" href="/create_blog.html">Create Blog</a></li>
+      </ul>
+        <ul class="auth-btns vertical list">
+            <li><a class="blue-btn " href="/login.html">Login</a></li>
+            <li><a class="blue-btn " href="/register.html">Register</a></li>
+        </ul> 
+      <form action="/logout"  method="POST" >
+        <button type="submit" class="btn" >Logout</button>
+      </form>
+    </nav>
+    
+    <div class="user-meta">
+      <a class="link" href="/user_profile.html">
+        <img src="/default_avatar.png" class="user-pic-small">
+      </a>
+    </div>
   </header>
-
   <main class="main-content">
-    <section class="hero-section">
-      <h1>Create an Account</h1>
-      <p>Join our community to write and share your blogs.</p>
-    </section>
-    <section>
-      <form action="/signup" method="POST">
+    <h1>Edit Your Profile</h1>
+      <form action="/signup" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label for="fullname">Full Name</label>
-          <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name">
+          <input type="text" value="Umesh Chandra" id="fullname" name="fullname" required placeholder="Enter your full name">
         </div>
 
-
+        
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required placeholder="name@example.com">
+          <input type="email" id="email" readonly name="email" required placeholder="name@example.com">
         </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required placeholder="Create a password">
-        </div>
-
-        <div class="form-group">
-          <label for="confirm-password">Confirm Password</label>
-          <input type="password" id="confirm-password" name="confirm_password" required placeholder="Confirm your password">
-        </div>
+       <div class="form-group">
+        <label>Profile Banner (Max size -5MB)</label>
+        <img class="image-meta" src="/default_banner.svg" alt="blog image">
+        <input name="featured-file" type="file" accept="image/*" required>
+      </div>
+        
+      <div class="form-group">
+        <label>Profile Avatar (Max size -5MB)</label>
+        <img class="image-meta" src="/default_avatar.png" alt="blog image">
+        <input name="featured-file" type="file" accept="image/*" required>
+      </div>
 
         <div>
           <button class="btn" type="submit">Register</button>
@@ -55,7 +78,8 @@
     </section>
   </main>
 
-  <footer>
+  
+<footer>
     <div>
       <img width="16" class="logo" src="/un-logo-black.jpg" alt="logo">
       <span class="site-name">BlogSphere</span>

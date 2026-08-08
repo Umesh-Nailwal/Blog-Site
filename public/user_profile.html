@@ -9,11 +9,10 @@
   <link rel="stylesheet" href="/style.css">
   <script src="https://kit.fontawesome.com/1b8a3d6871.js" crossorigin="anonymous"></script>
     <script type="text/javascript" defer src="/interactive.js"></script>
-
-  <title>Home</title>
+  <title>User Profile- BlogSphere</title>
 </head>
 <body>
-  <header class="top-bar">
+ <header class="top-bar">
     <div class="top-heading">
       <img class="logo" width="16" src="/un-logo.jpg" alt="logo">
       <span class="site-name">BlogSphere</span>
@@ -45,63 +44,22 @@
     </div>
   </header>
   
+   <div class="user-meta-profile">
+    <a class="link-edit" href="/edit_blog.html"><i class="fa-solid fa-pencil"></i></a>
+      <img class="user-banner" src="/default_banner.svg" alt="user banner">
+     <div class="user-meta-data">
+      <img class="user-pic-large" src="/default_avatar.png" alt="user photo">
+       <h1 class="user-name">Umesh Chandra</h1>
+      <p class="user-email">umeshnailwal1234@gmail.com</p>
+     </div>
+    </div>
+  
   <main class="main-content">
-    <section class="hero-section">
-      <h1 class="hero-title">Browse Our Resource</h1>
-      <p>We provide tips ans resources from industry leaders. For real</p>
-      <a href="/blogs.html" class="anchor link">Explore Blogs</a>
-    </section>
-    
-    <article class="featured-blog">
-        <section class="blog-meta-data">
-      <section class="blog-details">
-        <div>
-          <h2 class="blog-title">Basics Of Web Development & Backend Development</h2>
-          <p class="blog-summary">​Backend Development handles the behind-the-scenes logic, managing databases, server configurations, and application security to power the frontend.</p>
-        </div>
-
-        <a href="/sep-blog.html" class="redirect link" style="color:#f7f7f7;">See Blog</a>
-
-      </section>
-      <section class="blog-meta" >
-        <div class="blog-meta-header">
-        <div class="author-details">
-          <img width="40" class="author-photo" src="/authors/author1.jpeg" alt="author-photo">
-          <span class="author-name">Black Devil</span>
-        </div>
-        <div class="blog-date">
-          <i class="fa-regular fa-calendar" style="color: rgb(224, 228, 233);"></i>
-          <span class="blog-posted-date">5 Aug,2026</span>
-        </div>
-      </div>
-        
-        <div class="blog-categories">
-          <span class="blog-category">Web Development</span>
-          <span class="blog-category">Backend Development</span>
-        </div>
-      </section>
-     </section>
-    </article>
-    
-    <section class="filters">
-      <nav class="category-links">
-
-        <ul class="vertical list">
-          <li><a class="link" href="#">All</a></li>
-          <li><a class="link" href="#">Design</a></li>
-          <li><a class="link" href="#">Entertainment</a></li>
-          <li><a class="link" href="#">User Experience</a></li>
-        </ul>
-      </nav>
-      <form class="search-bar" action="/" method="GET">
-        <input class="input-search-bar" type="text" name="q" placeholder="Searching...">
-      </form>
-    </section>
-    
+    <h1>Your Blogs</h1>
     <section class="blog-feed">
       <article class="blog">
           <div class="image-meta">
-              <img width="400" class="blog-photo" src="/blog3.jpeg" alt="blog2.jpeg">
+              <img  class="blog-photo" src="/blog3.jpeg" alt="blog2.jpeg">
           </div>
               
         <section class="blog-details">
@@ -111,66 +69,69 @@
           <h2 >Frontend Basics And Tips</h2>
           <p class="blog-summary">Blog description</p>
         </section>
-        <section class="author-meta-data">
-          <div class="author-details">
-            <img width="32" class="author-photo" src="/authors/author1.jpeg" alt="author-photo">
-            <span class="author-name">Author Name</span>
-          </div>
+        
           <div class="blog-date">
             <span class="blog-posted-date">4 Aug,2026</span>
           </div>
-        </section>
-      </article>
-        
-        
-      <article class="blog">
-          <div class="image-meta">
-              <img  class="blog-photo" src="/blog3.jpeg" alt="blog3.jpeg">
-          </div>
-              
-        <section class="blog-details">
-          <p class="blog-meta-categories">
-              <span class="blog-category">Frontend Developer</span>
-            </p>
-          <h2 >Frontend Basics And Tips</h2>
-          <p class="blog-summary">Blog description</p>
-        </section>
-        <section class="author-meta-data">
-          <div class="author-details">
-            <img width="32" class="author-photo" src="/authors/author1.jpeg" alt="author-photo">
-            <span class="author-name">Author Name</span>
-          </div>
-          <div class="blog-date">
-            <span class="blog-posted-date">4 Aug,2026</span>
-          </div>
-        </section>
-      </article>
-        
-        
-     <article class="blog">
-          <div class="image-meta">
-          <img class="blog-photo" src="/blog3.jpeg" alt="blog3.jpeg">
-
-          </div>
-              
-        <section class="blog-details">
-          <p class="blog-meta-categories">
-              <span class="blog-category">Frontend Developer</span>
-            </p>
-          <h2 >Frontend Basics And Tips</h2>
-          <p class="blog-summary">Blog description</p>
-        </section>
-        <section class="author-meta-data">
-          <div class="author-details">
-            <img width="32" class="author-photo" src="/authors/author1.jpeg" alt="author-photo">
-            <span class="author-name">Author Name</span>
-          </div>
-          <div class="blog-date">
-            <span class="blog-posted-date">4 Aug,2026</span>
-          </div>
-        </section>
+        <a class="anchor link" href="/edit_blog.html">Edit</a>
       </article>
       
+      <article class="blog">
+          <div class="image-meta">
+              <img  class="blog-photo" src="/blog3.jpeg" alt="blog2.jpeg">
+          </div>
+              
+        <section class="blog-details">
+          <p class="blog-meta-categories">
+              <span class="blog-category">Frontend Developer</span>
+            </p>
+          <h2 >Frontend Basics And Tips</h2>
+          <p class="blog-summary">Blog description</p>
+        </section>
+        
+          <div class="blog-date">
+            <span class="blog-posted-date">4 Aug,2026</span>
+          </div>
+        <a class="anchor link" href="/edit_blog.html">Edit</a>
+      </article>
+      
+      <article class="blog">
+          <div class="image-meta">
+              <img  class="blog-photo" src="/blog3.jpeg" alt="blog2.jpeg">
+          </div>
+              
+        <section class="blog-details">
+          <p class="blog-meta-categories">
+              <span class="blog-category">Frontend Developer</span>
+            </p>
+          <h2 >Frontend Basics And Tips</h2>
+          <p class="blog-summary">Blog description</p>
+        </section>
+        
+          <div class="blog-date">
+            <span class="blog-posted-date">4 Aug,2026</span>
+          </div>
+        <a class="anchor link" href="/edit_blog.html">Edit</a>
+      </article>
+      
+      <article class="blog">
+          <div class="image-meta">
+              <img  class="blog-photo" src="/blog3.jpeg" alt="blog2.jpeg">
+          </div>
+              
+        <section class="blog-details">
+          <p class="blog-meta-categories">
+              <span class="blog-category">Frontend Developer</span>
+            </p>
+          <h2 >Frontend Basics And Tips</h2>
+          <p class="blog-summary">Blog description</p>
+        </section>
+        
+          <div class="blog-date">
+            <span class="blog-posted-date">4 Aug,2026</span>
+          </div>
+        <a class="anchor link" href="/edit_blog.html">Edit</a>
+      </article>
     </section>
   </main>
   

@@ -13,26 +13,35 @@
 </head>
 <body>
   <header class="top-bar">
-      <div>
+    <div class="top-heading">
       <img class="logo" width="16" src="/un-logo.jpg" alt="logo">
       <span class="site-name">BlogSphere</span>
-      </div>
-    <button class="hamburger-btn" id="navToggle" aria-label="Toggle navigation">
+    </div>
+   <button class="hamburger-btn" id="navToggle" aria-label="Toggle navigation">
     <span></span>
     <span></span>
     <span></span>
   </button>
-    <nav class="nav-bar">
+    <nav class="nav-bar" id="nav-menu">
       <ul class="vertical list">
         <li><a class="nav-link" href="/">Home</a></li>
         <li><a class="nav-link" href="/blogs.html">Blogs</a></li>
         <li><a class="nav-link" href="/create_blog.html">Create Blog</a></li>
       </ul>
-      <ul class="auth-btns vertical list">
-        <li><a class="blue-btn" href="/login.html">Login</a></li>
-        <li><a class="blue-btn" href="/register.html">Register</a></li>
-        </ul>
+        <ul class="auth-btns vertical list">
+            <li><a class="blue-btn " href="/login.html">Login</a></li>
+            <li><a class="blue-btn " href="/register.html">Register</a></li>
+        </ul> 
+      <form action="/logout"  method="POST" >
+        <button type="submit" class="btn" >Logout</button>
+      </form>
     </nav>
+    
+    <div class="user-meta">
+      <a class="link" href="/user_profile.html">
+        <img src="/default_avatar.png" class="user-pic-small">
+      </a>
+    </div>
   </header>
   <main class="main-content">
     <section class="blog-hero-section">
