@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
       content="Read blogs about web development, AI, programming, and technology.">
-  <link rel="icon" href="/un-logo.jpg">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/public/un-logo.jpg">
+  <link rel="stylesheet" href="/public/style.css">
   <script src="https://kit.fontawesome.com/1b8a3d6871.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" defer src="/public/interactive.js"></script>
   <title>Edit Profile - BlogSphere</title>
 </head>
 <body>
   
  <header class="top-bar">
     <div class="top-heading">
-      <img class="logo" width="16" src="/un-logo.jpg" alt="logo">
+      <img class="logo" width="16" src="/public/un-logo.jpg" alt="logo">
       <span class="site-name">BlogSphere</span>
     </div>
    <button class="hamburger-btn" id="navToggle" aria-label="Toggle navigation">
@@ -25,27 +26,27 @@
     <nav class="nav-bar" id="nav-menu">
       <ul class="vertical list">
         <li><a class="nav-link" href="/">Home</a></li>
-        <li><a class="nav-link" href="/blogs.html">Blogs</a></li>
-        <li><a class="nav-link" href="/create_blog.html">Create Blog</a></li>
+        <li><a class="nav-link" href="/blogs">Blogs</a></li>
+        <li><a class="nav-link" href="/create_blg">Create Blog</a></li>
       </ul>
         <ul class="auth-btns vertical list">
-            <li><a class="blue-btn " href="/login.html">Login</a></li>
-            <li><a class="blue-btn " href="/register.html">Register</a></li>
+            <li><a class="blue-btn " href="/auth/login">Login</a></li>
+            <li><a class="blue-btn " href="/auth/register">Register</a></li>
         </ul> 
-      <form action="/logout"  method="POST" >
+      <form action="/auth/logout"  method="POST" >
         <button type="submit" class="btn" >Logout</button>
       </form>
     </nav>
     
     <div class="user-meta">
-      <a class="link" href="/user_profile.html">
-        <img src="/default_avatar.png" class="user-pic-small">
+      <a class="link" href="/user_profile">
+        <img src="/public/default_avatar.png" class="user-pic-small">
       </a>
     </div>
   </header>
   <main class="main-content">
     <h1>Edit Your Profile</h1>
-      <form action="/signup" method="POST" enctype="multipart/form-data">
+      <form action="/auth/register" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label for="fullname">Full Name</label>
           <input type="text" value="Umesh Chandra" id="fullname" name="fullname" required placeholder="Enter your full name">
@@ -74,21 +75,21 @@
         </div>
       </form>
 
-      <p>Already have an account? <a class="anchor link" href="/login.html">Log In</a></p>
+      <p>Already have an account? <a class="anchor link" href="/auth/login">Log In</a></p>
     </section>
   </main>
 
   
 <footer>
     <div>
-      <img width="16" class="logo" src="/un-logo-black.jpg" alt="logo">
+      <img width="16" class="logo" src="/public/un-logo-black.jpg" alt="logo">
       <span class="site-name">BlogSphere</span>
     </div>
     <div class="footer-links">
 
       <ul class="list">
         <li><a class="link" href="/">Home</a></li>
-        <li><a class="link" href="#">Blog</a></li>
+        <li><a class="link" href="/blogs">Blog</a></li>
         <li><a class="link" href="#">About</a></li>
         <li><a class="link" href="#">ContactUs</a></li>
       </ul>

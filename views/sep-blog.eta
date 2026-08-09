@@ -1,0 +1,24 @@
+<% layout('base', { title: "Blog - BlogSphere"}) %>
+  <% if(it.blog) { %>
+<main class="main-content">
+    <section class="blog-hero-section">
+      <div class="blog-date">
+        <i class="fa-regular fa-calendar" ></i>
+      <span class="blog-posted-date"><%= it.blog.posted_date %></span>
+      </div>
+      <h1 class="blog-title"><%= it.blog.title %></h1>
+      <p class="blog-summary"> <%= it.blog.summary %></p>
+      <ul class="blog-categories list vertical">
+        <li class="blog-category">Backend Development</li>
+        <li class="blog-category">Web Development</li>
+        <li class="blog-category">Programming</li>
+      </ul>
+    </section>
+    <section class="blog-main-img" style="background-image: url(<%= it.blog.blog_image %>);">
+    </section>
+    <div class="blog-para" style="">
+       <%~ it.blog.description %>
+    </div>
+  </section>
+<% } %>
+  </main>

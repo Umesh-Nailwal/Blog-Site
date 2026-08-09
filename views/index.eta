@@ -1,0 +1,87 @@
+<% layout('base', { title: "Home - BlogSphere"}) %>
+  <main class="main-content">
+    <section class="hero-section">
+      <h1 class="hero-title">Browse Our Resource</h1>
+      <p>We provide tips ans resources from industry leaders. For real</p>
+      <a href="/blogs" class="anchor link">Explore Blogs</a>
+    </section>
+    <% if(it.featured_blog){ %>
+    <article class="featured-blog"
+      style="background-image: url(<%= it.featured_blog.blog_image %>)">
+        <section class="blog-meta-data">
+      <section class="blog-details">
+        <div>
+          <h2 class="blog-title"> <%= it.featured_blog.title %></h2>
+          <p class="blog-summary-mid"> <%= it.featured_blog.summary %> </p>
+        </div>
+
+        <a href="/blog/<%= it.featured_blog.id %>" class="redirect link" style="color:#f7f7f7;">See Blog</a>
+
+      </section>
+      <section class="blog-meta" >
+        <div class="blog-meta-header">
+        <div class="author-details">
+          <img width="40" class="author-photo" src="<%= it.featured_blog.author_avatar %>" alt="author-photo">
+          <span class="author-name"><%= it.featured_blog.author_name %></span>
+        </div>
+        <div class="blog-date">
+          <i class="fa-regular fa-calendar" style="color: rgb(224, 228, 233);"></i>
+          <span class="blog-posted-date"><%= it.featured_blog.posted_date  %></span>
+        </div>
+      </div>
+        
+        <div class="blog-categories">
+          <span class="blog-category">Web Development</span>
+          <span class="blog-category">Backend Development</span>
+        </div>
+      </section>
+     </section>
+    </article>
+    <% } %>
+    <section class="filters">
+      <nav class="category-links">
+
+        <ul class="vertical list">
+          <li><a class="link" href="#">All</a></li>
+          <li><a class="link" href="#">Design</a></li>
+          <li><a class="link" href="#">Entertainment</a></li>
+          <li><a class="link" href="#">User Experience</a></li>
+        </ul>
+      </nav>
+      <form class="search-bar" action="/" method="GET">
+        <input class="input-search-bar" type="text" name="q" placeholder="Searching...">
+      </form>
+    </section>
+    
+    <section class="blog-feed">
+     <% if (it.blogs && it.blogs.length > 0) { %>
+    <% it.blogs.forEach((blog) => { %>
+      <article class="blog">
+        <div class="image-meta">
+          <img width="400" class="blog-photo" src="<%= blog.blog_image || '/blog3.jpeg' %>" alt="<%= blog.title %>">
+        </div>
+
+        <section class="blog-details">
+          <p class="blog-meta-categories">
+            <span class="blog-category"><%= blog.category || 'General' %></span>
+          </p>
+          <h2 class="title"><%= blog.title %></h2>
+          <p class="blog-summary-short"><%= blog.summary %></p>
+        </section>
+       <a href="/blog/<%= blog.id %>" class="anchor link">See Blog</a>
+        <section class="author-meta-data">
+          <div class="author-details">
+            <img width="32" class="author-photo" src="<%= blog.author_avatar || '/default_avatar.png' %>" alt="author-photo">
+            <span class="author-name"><%= blog.author_name %></span>
+          </div>
+          <div class="blog-date">
+            <span class="blog-posted-date"><%= blog.posted_date %></span>
+          </div>
+        </section>
+      </article>
+    <% }) %>
+  <% } else { %>
+    <p>No blogs available right now.</p>
+  <% } %>
+    </section>
+  </main>

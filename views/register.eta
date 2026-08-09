@@ -1,0 +1,37 @@
+<% layout('auth-temp', { title: 'Register - BlogSphere' }) %>
+<main class="main-content">
+    <section class="hero-section">
+      <h1>Create an Account</h1>
+      <p>Join our community to write and share your blogs.</p>
+    </section>
+    <section>
+      <form action="/auth/register" method="POST">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name">
+        </div>
+
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="name@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required placeholder="Create a password">
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm_password" required placeholder="Confirm your password">
+        </div>
+
+        <div>
+          <button class="btn" type="submit">Register</button>
+        </div>
+      </form>
+
+      <p>Already have an account? <a class="anchor link" href="/auth/login">Log In</a></p>
+    </section>
+  </main>

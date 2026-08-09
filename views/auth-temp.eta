@@ -1,66 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
       content="Read blogs about web development, AI, programming, and technology.">
-  <link rel="icon" href="/un-logo.jpg">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/public/un-logo.jpg">
+  <link rel="stylesheet" href="/public/style.css">
   <script src="https://kit.fontawesome.com/1b8a3d6871.js" crossorigin="anonymous"></script>
-  <title>Log In - BlogSphere</title>
+  <script type="text/javascript" defer src="/public/interactive.js"></script>
+  <title><%= it.title %></title>
 </head>
 <body>
   <header>
     <section class="top-heading" style="justify-content:left;">
-    <img width="16" src="/un-logo.jpg"  alt="website logo">
+    <img width="16" src="/public/un-logo.jpg"  alt="website logo">
     <a class="link" href="/">BlogSphere</a>
   </section>
   </header>
-
-  <main class="main-content">
-    <section class="hero-section">
-      <h1>Welcome Back</h1>
-      <p>Please enter your details to sign in.</p>
-     </section>
+  <%~ it.body %>
     
-    <section>
-      <form action="/login" method="POST">
-        <div class="form-group">
-          <label for="login-id">Email</label>
-          <input type="text" id="login-id" name="login_id" required placeholder="Enter your email or username">
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required placeholder="Enter your password">
-        </div>
-
-        <div class="form-group">
-          <label class="checkbox-label" for="remember"><input type="checkbox" id="remember" name="remember">
-            Remember me</label>
-        </div>
-
-
-        <div>
-          <button class="btn" type="submit">Log In</button>
-        </div>
-      </form>
-
-      <p>Don't have an account? <a class="anchor link" href="/register.html">Register</a></p>
-    </section>
-  </main>
-
   <footer>
     <div>
-      <img width="16" class="logo" src="/un-logo-black.jpg" alt="logo">
+      <img width="16" class="logo" src="/public/un-logo-black.jpg" alt="logo">
       <span class="site-name">BlogSphere</span>
     </div>
     <div class="footer-links">
 
       <ul class="list">
         <li><a class="link" href="/">Home</a></li>
-        <li><a class="link" href="#">Blog</a></li>
+        <li><a class="link" href="/blogs">Blog</a></li>
         <li><a class="link" href="#">About</a></li>
         <li><a class="link" href="#">ContactUs</a></li>
       </ul>
