@@ -1,0 +1,94 @@
+<% layout('base', { title: "Blogs - BlogSphere"}) %>
+   <button class="filter-toggle-btn" id="filterToggle">
+    ⚡ Filters
+  </button>
+  
+  <div class="layout">
+  <aside class="side-filters" id="sidebarFilter">
+      <button class="close-btn" id="filterClose">&times;</button>
+    <section class="main-form">
+      <form class="" action="" method="GET">
+        <section class="form-group">
+          <label>Label</label>
+          <input  type="text" value="" placeholder="Search article..">
+        </section>
+        <section class="form-group">
+          <label>Filters</label>
+          <select >
+            <option>Filter By</option>
+            <option >Published date(Ascending)</option>
+            <option >Published date(Descending)</option>
+          </select>
+        </section>
+      </form>
+    </section>
+    
+    <section >
+      <label >Browse By Category</label>
+      <ul class="category-filters list">
+        <li><a class="link" href="/blogs">All Category</a></li>
+        <li><a class="link" href="#" >UI/UX Design</a></li>
+        <li><a class="link" href="#" >Machnine Learning</a></li>
+        <li><a class="link" href="#" >Artificial Intelligence</a></li>
+        <li><a class="link" href="#" >Networking</a></li>
+        <li><a class="link" href="#" >Gaming</a></li>
+        <li><a class="link" href="#" >UI/UX Design</a></li>
+        <li><a class="link" href="#" >Web Development</a></li>
+        <li><a class="link" href="#" >Backend Development</a></li>
+        <li><a class="link" href="#" >Cloud Computing</a></li>
+        <li><a class="link" href="#" >DevOps</a></li>
+        <li><a class="link" href="#" >Design</a></li>
+        <li><a class="link" href="#" >Programming</a></li>
+        <li><a class="link" href="#" >Tech</a></li>
+        <li><a class="link" href="#" >Things</a></li>
+        <li><a class="link" href="#" >Human Resource</a></li>
+        <li><a class="link" href="#" >News</a></li>
+        <li><a class="link" href="#" >Entertainment</a></li>
+      </ul>
+    </section>
+      
+    </aside>
+
+     <div class="overlay" id="overlay"></div>
+  <main class="content" >
+    <section class="hero-section">
+      <h1>Browse Our Resource</h1>
+      <p>We provide tips ans resources from industry leaders. For real</p>
+      
+    </section>
+    
+    <section class="blog-feed">
+      <% if (it.blogs && it.blogs.length > 0) { %>
+    <% it.blogs.forEach((blog) => { %>
+      <article class="blog">
+        <div class="image-meta">
+          <img width="400" class="blog-photo" src="<%= blog.blog_image || '/blog3.jpeg' %>" alt="<%= blog.title %>">
+        </div>
+
+        <section class="blog-details">
+          <p class="blog-categories">
+            <span class="blog-category"><%= blog.category || 'General' %></span>
+          </p>
+          <h2 class="title"><%= blog.title %></h2>
+          <p class="blog-summary-short"><%= blog.summary %></p>
+<a href="/blog/<%= blog.id %>" class="redirect">See Blog</a>
+        </section>
+       
+        <section class="author-meta-data">
+          <div class="author-details">
+            <img width="32" class="author-photo" src="<%= blog.author_avatar || '/auhtors/author2.jpeg' %>" alt="author-photo">
+            <span class="author-name"><%= blog.author_name %></span>
+          </div>
+          <div class="blog-date">
+            <span class="blog-posted-date"><%= blog.posted_date %></span>
+          </div>
+        </section>
+      </article>
+    <% }) %>
+  <% } else { %>
+    <p>No blogs available right now.</p>
+  <% } %>
+    </section>
+    
+  </main>
+</div>

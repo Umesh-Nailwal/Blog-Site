@@ -2,13 +2,12 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const PORT = 3000
+
 const { Eta } = require('eta')
 const view_path = path.join(__dirname,'views')
-
 const blogRouter = require('./routes/blogs')
 const userRouter = require('./routes/profile')
 const authRouter = require('./routes/authentication')
-
 
 const eta = new Eta({
   views: view_path,
@@ -28,7 +27,8 @@ app.engine('eta', (filePath, options, callback) => {
 app.set('views', view_path);
 app.set('view engine', 'eta');
 
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
 app.use('/public',express.static(path.join(__dirname,'public')))
 app.use(express.static(path.join(__dirname,'uploads'),{
     maxAge : '1d'
@@ -37,6 +37,11 @@ app.use('/',blogRouter)
 app.use('/user_profile',userRouter)
 app.use('/auth',authRouter)
 
+
+
+
+
 app.listen(PORT ,() => {
     console.log(`server is listening at ${PORT}`)
 })
+ 

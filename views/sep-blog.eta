@@ -8,15 +8,13 @@
       </div>
       <h1 class="blog-title"><%= it.blog.title %></h1>
       <p class="blog-summary"> <%= it.blog.summary %></p>
-      <ul class="blog-categories list vertical">
-        <li class="blog-category">Backend Development</li>
-        <li class="blog-category">Web Development</li>
-        <li class="blog-category">Programming</li>
-      </ul>
+      <p class="blog-categories">
+        <span class="blog-category"><%= it.blog.category %></span>
+      <p>
     </section>
     <section class="blog-main-img" style="background-image: url(<%= it.blog.blog_image %>);">
     </section>
-    <div class="blog-para" style="">
+    <div class="blog-para" >
        <%~ it.blog.description %>
     </div>
   </section>

@@ -4,11 +4,11 @@ const path = require('path')
 const { blogData, blogMap } = require('../db')
 
 router.get('/',(req,res) => {
-    res.sendFile(path.join(__dirname,'..','public','user_profile.html'))
+    res.render('user_profile',{})
 })
 
 router.get('/edit_profile',(req,res) => {
-    res.sendFile(path.join(__dirname,'..','public','edit_profile.html'))
+    res.render('edit_profile',{})
 })
 
 router.post('/edit_profile',(req,res) => {

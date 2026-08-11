@@ -1,0 +1,31 @@
+<% layout('base', {title:"Create Blog -BlogSphere"}) %>
+    <main class="form-main">
+    <h2 class="form-heading">Create Blog</h2>
+    <form action="/create_blog" method="POST" enctype="multipart/form-data">
+      <section class="form-group">
+        <label>Blog Title</label>
+        <input name="title" type="text" required="" placeholder="Enter blog title">
+      </section>
+      <section class="form-group">
+        <label>Summary</label>
+        <input name="summary" type="text" required="" placeholder="Write a short summary">
+      </section>
+      <section class="form-group">
+        <label>Blog Content</label>
+        <textarea name="content" rows="12" cols="30" required="" placeholder="Enter your blog.."></textarea>
+      </section>
+      <section class="form-group">
+        <label>Categories</label>
+        <select name="categories" required="" multiple>
+          <option value="Web Development">Web Development</option>
+          <option value="AI">Ai </option>
+          <option value="Full Stack">Full Stack</option>
+        </select>
+      </section>
+      <section class="form-group">
+        <label>Featured Image (Max size -5MB)</label>
+        <input name="file" type="file" accept="image/*" required>
+      </section>
+      <button type="submit" class="btn">Add Blog</button>
+    </form>
+  </main>

@@ -6,7 +6,7 @@
      </section>
     
     <section>
-      <form action="/login" method="POST">
+      <form action="/auth/login" method="POST">
         <div class="form-group">
           <label for="login-id">Email</label>
           <input type="text" id="login-id" name="login_id" required placeholder="Enter your email or username">

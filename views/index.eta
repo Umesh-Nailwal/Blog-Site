@@ -13,10 +13,8 @@
         <div>
           <h2 class="blog-title"> <%= it.featured_blog.title %></h2>
           <p class="blog-summary-mid"> <%= it.featured_blog.summary %> </p>
-        </div>
-
-        <a href="/blog/<%= it.featured_blog.id %>" class="redirect link" style="color:#f7f7f7;">See Blog</a>
-
+       <a href="/blog/<%= it.featured_blog.id %>" class="anchor link" style="color:#f7f7f7;">See Blog</a>
+       </div>
       </section>
       <section class="blog-meta" >
         <div class="blog-meta-header">
@@ -30,10 +28,10 @@
         </div>
       </div>
         
-        <div class="blog-categories">
-          <span class="blog-category">Web Development</span>
-          <span class="blog-category">Backend Development</span>
-        </div>
+        <p>
+          <span class="blog-category"><%= it.featured_blog.category %></span>
+         </p>
+        
       </section>
      </section>
     </article>
@@ -62,13 +60,15 @@
         </div>
 
         <section class="blog-details">
-          <p class="blog-meta-categories">
-            <span class="blog-category"><%= blog.category || 'General' %></span>
-          </p>
+          <p>
+            <span class="blog-category"><%= blog.category || 'General' %><span>
+             </p>
+          
           <h2 class="title"><%= blog.title %></h2>
           <p class="blog-summary-short"><%= blog.summary %></p>
+         <a href="/blog/<%= blog.id %>" class="redirect">See Blog</a>
         </section>
-       <a href="/blog/<%= blog.id %>" class="anchor link">See Blog</a>
+       
         <section class="author-meta-data">
           <div class="author-details">
             <img width="32" class="author-photo" src="<%= blog.author_avatar || '/default_avatar.png' %>" alt="author-photo">

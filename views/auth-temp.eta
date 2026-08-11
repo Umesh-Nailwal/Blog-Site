@@ -9,7 +9,7 @@
   <link rel="icon" href="/public/un-logo.jpg">
   <link rel="stylesheet" href="/public/style.css">
   <script src="https://kit.fontawesome.com/1b8a3d6871.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" defer src="/public/interactive.js"></script>
+  <script type="text/javascript"  src="/public/interactive.js" defer></script>
   <title><%= it.title %></title>
 </head>
 <body>
@@ -19,8 +19,12 @@
     <a class="link" href="/">BlogSphere</a>
   </section>
   </header>
+<% if(it.error){ %>
+<section  class="pop-ups" style="padding:24px">
+<p class="pop-up" id="pop-up"><%= it.error %></p>
+</section>
+<% } %>
   <%~ it.body %>
-    
   <footer>
     <div>
       <img width="16" class="logo" src="/public/un-logo-black.jpg" alt="logo">

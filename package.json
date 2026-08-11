@@ -12,7 +12,20 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@supabase/supabase-js": "^2.112.2",
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^17.4.2",
     "eta": "^4.6.0",
-    "express": "^5.2.1"
-  }
+    "express": "^5.2.1",
+    "multer": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Umesh-Nailwal/Blog-Site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Umesh-Nailwal/Blog-Site/issues"
+  },
+  "homepage": "https://github.com/Umesh-Nailwal/Blog-Site#readme"
 }

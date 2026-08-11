@@ -1,0 +1,40 @@
+<% layout('base', {title :"User Profile - BlogSphere"}) %>
+ <div class="user-meta-profile">
+    <a class="link-edit" href="/user_profile/edit_profile"><i class="fa-solid fa-pencil"></i></a>
+      <img class="user-banner" src="/public/default_banner.svg" alt="user banner">
+     <div class="user-meta-data">
+      <img class="user-pic-large" src="/public/default_avatar.png" alt="user photo">
+       <h1 class="user-name">Umesh Chandra</h1>
+      <p class="user-email">umeshnailwal1234@gmail.com</p>
+     </div>
+    </div>
+  
+  <main class="main-content">
+    <h1>Your Blogs</h1>
+    <section class="blog-feed">
+      <% if (it.blogs && it.blogs.length > 0) { %>
+    <% it.blogs.forEach((blog) => { %>
+      <article class="blog">
+        <div class="image-meta">
+          <img width="400" class="blog-photo" src="<%= blog.blog_image || '/blog3.jpeg' %>" alt="<%= blog.title %>">
+        </div>
+
+        <section class="blog-details">
+          <p class="blog-meta-categories">
+            <span class="blog-category"><%= blog.category || 'General' %></span>
+          </p>
+          <h2 class="title"><%= blog.title %></h2>
+          <p class="blog-summary-short"><%= blog.summary %></p>
+        </section>
+       <a href="/blog/<%= blog.id %>" class="anchor link">See Blog</a>
+          <div class="blog-date">
+            <span class="blog-posted-date"><%= blog.posted_date %></span>
+          </div>
+        </section>
+      </article>
+    <% }) %>
+  <% } else { %>
+    <p>No blogs available right now.</p>
+  <% } %>
+    </section>
+  </main>

@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const path = require('path')
 const { blogData, blogMap } = require('../db')
+const upload = require('../middleware/upload')
+
 
 router.get('/',(req,res) => {
     const featured_blog = blogMap[1]
@@ -13,19 +15,25 @@ router.get('/',(req,res) => {
 })
 
 router.get('/blogs',(req,res) => {
-    res.sendFile(path.join(__dirname,'..','public','blogs.html'))
+    const blogs = blogData
+    res.render('blogs',{
+        blogs: blogs
+    })
 })
 
 router.get('/create_blog',(req,res) =>{
-    res.sendFile(path.join(__dirname,'..','public','create_blog.html'))
+    res.render('create_blog',{})
 })
 
-router.post('/create_blog',(req,res) =>{
+router.post('/create_blog',upload.single("file"),async (req,res) =>{
+    const { title ,summary, content, categories} = req.body
+    const file = req.file
+    
     res.redirect('/user_profile')
 })
 
 router.get('/edit_blog',(req,res) =>{
-    res.sendFile(path.join(__dirname,'..','public','edit_blog.html'))
+    res.render('edit_blog',{})
 })
 
 router.post('/edit_blog',(req,res) =>{

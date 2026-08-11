@@ -40,7 +40,8 @@ const blogData = [
     author_name:"Black Devil",
     author_avatar:"/authors/author1.jpeg",
     blog_image: "/blog1.jpeg",
-    posted_date:"6 Aug, 2026"
+    posted_date:"6 Aug, 2026",
+    category: "Web Development"
 },
 {
     id: 2,
@@ -68,7 +69,8 @@ const blogData = [
     author_name: "Dev Guru",
     author_avatar: "/authors/author1.jpeg",
     blog_image: "/blog2.jpeg",
-    posted_date: "7 Aug, 2026"
+    posted_date: "7 Aug, 2026",
+    category: "Backend Development"
   },
   {
     id: 3,
@@ -93,7 +95,8 @@ const blogData = [
     author_name: "Sarah Code",
     author_avatar: "/authors/author1.jpeg",
     blog_image: "/blog3.jpeg",
-    posted_date: "7 Aug, 2026"
+    posted_date: "7 Aug, 2026",
+      category:"Web Development"
   },
   {
     id: 4,
@@ -118,7 +121,8 @@ const blogData = [
     author_name: "Alex Turner",
     author_avatar: "/authors/author1.jpeg",
     blog_image: "/blog2.jpeg",
-    posted_date: "8 Aug, 2026"
+    posted_date: "8 Aug, 2026",
+      category: "Backend Development"
   },
   {
     id: 5,
@@ -139,7 +143,8 @@ const blogData = [
     author_name: "DB Craftsman",
     author_avatar: "/authors/author1.jpeg",
     blog_image: "/blog3.jpeg",
-    posted_date: "8 Aug, 2026"
+    posted_date: "8 Aug, 2026",
+      category: "Database"
   },
   {
     id: 6,
@@ -157,7 +162,8 @@ const blogData = [
     author_name: "CyberShield",
     author_avatar: "/authors/author1.jpeg",
     blog_image: "/blog2.jpeg",
-    posted_date: "8 Aug, 2026"
+    posted_date: "8 Aug, 2026",
+      category: "Web Security"
   },
   {
     id: 7,
@@ -175,7 +181,8 @@ const blogData = [
     author_name: "DevOps Dave",
     author_avatar: "/authors/author1.jpeg",
     blog_image: "/blog3.jpeg",
-    posted_date: "9 Aug, 2026"
+    posted_date: "9 Aug, 2026",
+      category:"DevOps"
   },
   {
     id: 8,
@@ -193,7 +200,8 @@ const blogData = [
     author_name: "Js Ninja",
     author_avatar: "/authors/author1.jpeg",
     blog_image: "/blog1.jpeg",
-    posted_date: "9 Aug, 2026"
+    posted_date: "9 Aug, 2026",
+      category:"Backend Development"
   },
   {
     id: 9,
@@ -211,7 +219,8 @@ const blogData = [
     author_name: "FastWeb Pro",
     author_avatar: "/authors/author1.jpeg",
     blog_image: "/blog3.jpeg",
-    posted_date: "9 Aug, 2026"
+    posted_date: "9 Aug, 2026",
+      category:"Web Development"
   },
   {
     id: 10,
@@ -228,7 +237,8 @@ const blogData = [
     author_name: "UI Specialist",
     author_avatar: "/authors/author1.jpeg",
     blog_image: "/blog1.jpeg",
-    posted_date: "9 Aug, 2026"
+    posted_date: "9 Aug, 2026",
+      category:"Web Development"
   }
 ]
 
