@@ -247,4 +247,18 @@ const blogMap = blogData.reduce((acc, item) => {
   return acc;
 }, {});
 
-module.exports = { blogData, blogMap}
+const users =[{
+    id: 1, name:"umesh", email:"example@gmail.com", password:"$2b$10$3fDNGgmPey1QuZT8TmbtK.CueASoGM2ua7lJfDLaeIunlSh9fQLQu"//umeshnailwal
+},
+{
+    id: 2, name:"umeshnailwal", email:"example123@gmail.com", password:"$2b$10$s3w4y3RtAZCEDW0TJPJ8h.HPqzM50vycvcWT428w3m/.s0IlijOsC"//umesh
+}]
+const userMap = users.reduce((acc, item) => {
+  acc[item.id] = item;
+  return acc;
+}, {});
+const user_email = users.reduce((acc, item) => {
+  acc[item.email] = item;
+  return acc;
+}, {});
+module.exports = { blogData, blogMap, users, userMap, user_email}

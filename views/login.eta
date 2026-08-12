@@ -8,8 +8,8 @@
     <section>
       <form action="/auth/login" method="POST">
         <div class="form-group">
-          <label for="login-id">Email</label>
-          <input type="text" id="login-id" name="login_id" required placeholder="Enter your email or username">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" required placeholder="Enter your email or username">
         </div>
 
         <div class="form-group">

@@ -18,6 +18,7 @@
     "dotenv": "^17.4.2",
     "eta": "^4.6.0",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "multer": "^2.2.0"
   },
   "repository": {
@@ -27,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/Umesh-Nailwal/Blog-Site/issues"
   },
-  "homepage": "https://github.com/Umesh-Nailwal/Blog-Site#readme"
+  "homepage": "https://github.com/Umesh-Nailwal/Blog-Site#readme",
+  "allowScripts": {
+    "better-sqlite3@13.0.3": true
+  }
 }

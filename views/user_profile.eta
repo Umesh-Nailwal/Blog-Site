@@ -4,8 +4,8 @@
       <img class="user-banner" src="/public/default_banner.svg" alt="user banner">
      <div class="user-meta-data">
       <img class="user-pic-large" src="/public/default_avatar.png" alt="user photo">
-       <h1 class="user-name">Umesh Chandra</h1>
-      <p class="user-email">umeshnailwal1234@gmail.com</p>
+       <h1 class="user-name"><%= it.user.name %></h1>
+      <p class="user-email"><%= it.user.email %></p>
      </div>
     </div>
   

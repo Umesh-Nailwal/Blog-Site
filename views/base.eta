@@ -28,20 +28,25 @@
         <li><a class="nav-link" href="/blogs">Blogs</a></li>
         <li><a class="nav-link" href="/create_blog">Create Blog</a></li>
       </ul>
-        <ul class="auth-btns vertical list">
+     <% if(!it.user){ %>
+     <ul class="auth-btns vertical list">
             <li><a class="blue-btn " href="/auth/login">Login</a></li>
             <li><a class="blue-btn " href="/auth/register">Register</a></li>
-        </ul> 
+    </ul> 
+   </nav>
+    <% } %>
+      <% if(it.user){ %>
       <form action="/auth/logout"  method="POST" >
         <button type="submit" class="btn" >Logout</button>
-      </form>
+      </form>    
     </nav>
-    
     <div class="user-meta">
       <a class="link" href="/user_profile">
         <img src="/public/default_avatar.png" class="user-pic-small">
       </a>
     </div>
+  <% } %>
+   
   </header>
   <%~ it.body %>
   <footer>

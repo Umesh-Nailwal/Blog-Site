@@ -1,4 +1,4 @@
-//const Database = require("better-sqlite3");
+const Database = require("better-sqlite3");
 
 const db = new Database("blog.db");
 
