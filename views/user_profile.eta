@@ -12,15 +12,15 @@
   <main class="main-content">
     <h1>Your Blogs</h1>
     <section class="blog-feed">
-      <% if (it.blogs && it.blogs.length > 0) { %>
-    <% it.blogs.forEach((blog) => { %>
+      <% if (it.user_blogs && it.user_blogs.length > 0) { %>
+    <% it.user_blogs.forEach((blog) => { %>
       <article class="blog">
         <div class="image-meta">
-          <img width="400" class="blog-photo" src="<%= blog.blog_image || '/blog3.jpeg' %>" alt="<%= blog.title %>">
+          <img width="400" class="blog-photo" src="<%= blog.image ? '/blog-image/' + blog.image : '/blog1.jpeg' %>" alt="<%= blog.title %>">
         </div>
 
         <section class="blog-details">
-          <p class="blog-meta-categories">
+          <p class="blog-categories">
             <span class="blog-category"><%= blog.category || 'General' %></span>
           </p>
           <h2 class="title"><%= blog.title %></h2>
@@ -28,10 +28,10 @@
         </section>
        <a href="/blog/<%= blog.id %>" class="anchor link">See Blog</a>
           <div class="blog-date">
-            <span class="blog-posted-date"><%= blog.posted_date %></span>
+            <span class="blog-posted-date"><%= new Date(blog.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %></span>
           </div>
-        </section>
       </article>
+   </section>
     <% }) %>
   <% } else { %>
     <p>No blogs available right now.</p>

@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
-const { blogData, blogMap } = require('../db')
-const upload = require('../middleware/upload')
-
+const pool = require('../db/database')
+const {upload} = require('../middleware/upload')
+const login_required = require('../middleware/login_required')
+const {blog_validation }= require('../middleware/validate_input')
+const { blogData, blogMap} = require('../db')
 
 router.get('/',(req,res) => {
     const featured_blog = blogMap[1]
@@ -21,15 +23,28 @@ router.get('/blogs',(req,res) => {
     })
 })
 
-router.get('/create_blog',(req,res) =>{
+router.get('/create_blog',login_required, (req,res) =>{
     res.render('create_blog',{})
 })
 
-router.post('/create_blog',upload.single("file"),async (req,res) =>{
-    const { title ,summary, content, categories} = req.body
-    const file = req.file
-    
-    res.redirect('/user_profile')
+router.post('/create_blog',login_required,upload.single("file"),blog_validation,async (req,res) =>{
+    try { 
+        const { title ,summary, content, category} = req.body
+        const file = req.file
+        
+        const result = await pool.query(`INSERT INTO 
+        blogs(author_id, title, summary, content, category, image)
+        VALUES($1,$2,$3,$4,$5,$6)`,[parseInt(req.session.user.id,10), title, summary, content, category,file.filename])
+        
+        if (result.rowCount >0){
+            res.redirect('/user_profile')
+        } else {
+            res.render('create_blog', {error :"Blog Creation Failed"})
+        }
+    } catch(error) {
+        console.log(error)
+        res.status(500).render('create_blog',{error : "Server Error"})
+    }
 })
 
 router.get('/edit_blog',(req,res) =>{

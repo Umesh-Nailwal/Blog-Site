@@ -1,9 +1,11 @@
-
+require("dotenv").config()
 const express = require('express')
 const app = express()
 const session = require('express-session')
 const path = require('path')
 const PORT = 3000
+const pgSession = require('connect-pg-simple')(session)
+const pool = require('./db/database')
 
 const { Eta } = require('eta')
 const view_path = path.join(__dirname,'views')
@@ -26,16 +28,21 @@ app.engine('eta', (filePath, options, callback) => {
         callback(err);
     }
 });
-app.use(
-  session({
-    secret: "my-super-secret-key",
+app.use(session({
+    store: new pgSession({
+        pool: pool,
+        tableName: 'session',
+        createTableIfMissing: true
+    }),
+    secret: "super-secret-session-key",
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 1000*60*60*24
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+        httpOnly: true,
+        secure: false
     }
-  })
-);
+}))
 app.set('views', view_path);
 app.set('view engine', 'eta');
 

@@ -15,11 +15,13 @@
     "@supabase/supabase-js": "^2.112.2",
     "bcryptjs": "^3.0.3",
     "better-sqlite3": "^13.0.3",
+    "connect-pg-simple": "^10.0.0",
     "dotenv": "^17.4.2",
     "eta": "^4.6.0",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
-    "multer": "^2.2.0"
+    "multer": "^2.2.0",
+    "pg": "^8.23.0"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
   },
   "homepage": "https://github.com/Umesh-Nailwal/Blog-Site#readme",
   "allowScripts": {
-    "better-sqlite3@13.0.3": true
+    "better-sqlite3@13.0.3": true,
+    "sqlite3@6.0.1": true
   }
 }
