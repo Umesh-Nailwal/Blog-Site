@@ -5,21 +5,44 @@ const pool = require('../db/database')
 const {upload} = require('../middleware/upload')
 const login_required = require('../middleware/login_required')
 const {blog_validation }= require('../middleware/validate_input')
-const { blogData, blogMap} = require('../db')
 
-router.get('/',(req,res) => {
-    const featured_blog = blogMap[1]
-    const blogs = blogData
-    res.render('index',{
-        featured_blog: featured_blog,
-        blogs: blogs
-    })
+router.get('/',async (req,res) => {
+    const blogs = await pool.query(`SELECT blogs.id, blogs.title, blogs.summary, blogs.category, blogs.content,
+    blogs.image , blogs.created_at, users.name, users.avatar FROM blogs JOIN users ON blogs.author_id=users.id ORDER BY blogs.created_at DESC`)
+    const featured_blog= blogs.rows[0]
+    res.render('index', {blogs: blogs.rows , featured_blog: featured_blog})
 })
 
-router.get('/blogs',(req,res) => {
-    const blogs = blogData
-    res.render('blogs',{
-        blogs: blogs
+router.get('/blogs',async (req,res) => {
+    const { q, order_by} = req.query
+    const filters=null
+    const conditions =[]
+    const values =[]
+    if (q){
+        values.push(`%${q}%`)
+        conditions.push(`(blogs.title ILIKE $${values.length}
+        OR blogs.summary ILIKE $${values.length}
+        OR blogs.content ILIKE $${values.length})`)
+        
+    }
+    if (filters){
+        values.push(`${filters}`)
+        conditions.push(`blogs.category= $${values.length}`)
+    }
+    let sql= `
+    SELECT blogs.id, blogs.title, blogs.summary, blogs.category, blogs.content,
+    blogs.image , blogs.created_at, users.name, users.avatar FROM blogs JOIN users ON blogs.author_id=users.id `
+    
+    if(conditions.length >0){
+        sql+= `WHERE ${conditions.join('AND ')}`
+    }
+    const order = order_by === "ASC"?"ASC":"DESC"
+    sql+= `ORDER BY blogs.created_at ${order}`
+    const blogs = await pool.query(sql,values)
+    
+    res.render('blogs', {blogs: blogs.rows,
+        q: q || null, 
+        order_by: order_by || null
     })
 })
 
@@ -47,20 +70,60 @@ router.post('/create_blog',login_required,upload.single("file"),blog_validation,
     }
 })
 
-router.get('/edit_blog',(req,res) =>{
-    res.render('edit_blog',{})
+router.post('/delete_blog/:id',login_required,async (req,res) =>{
+    const blog_id = parseInt(req.params.id,10)
+    const blog = await pool.query(`DELETE FROM blogs WHERE id =$1 AND author_id=$2`,[blog_id, req.session.user.id])
+    if (blog.rowCount>0){
+        res.redirect('/user_profile')
+    } else {
+        res.render('user_profile',{error:"Cannot Delete"})
+    }
 })
 
-router.post('/edit_blog',(req,res) =>{
-    res.redirect('/user_profile')
+router.get('/edit_blog/:id',login_required,async (req,res) =>{
+    const blog_id = parseInt(req.params.id,10)
+    const blog = await pool.query(`
+    SELECT * FROM blogs WHERE id =$1 AND author_id=$2`,
+    [blog_id, req.session.user.id])
+    if (blog.rowCount >0){
+        res.render('edit_blog',{blog: blog.rows[0]})
+    } else {
+        res.redirect('/user_profile')
+    }
 })
 
-router.get('/blog/:id',(req,res) => {
-    const {id} = req.params
-    const blog = blogMap[id]
-    if (id && blog){
+router.post('/edit_blog/:id',login_required,upload.single("file"),async (req,res) =>{
+    try { 
+        
+        const title = req.body.title?.trim()|| null
+        const summary = req.body.summary || null
+        const content = req.body.content || null
+        const category = req.body.category || null
+        const file = req.file || null
+        const blog_id = parseInt(req.params.id,10)
+        const user_id = parseInt(req.session.user.id,10)
+        
+        const result = await pool.query(`UPDATE 
+        blogs SET title=COALESCE($1, title), summary=COALESCE($2, summary), content=COALESCE($3, content), category=COALESCE($4,category), image=COALESCE($5, image)
+        WHERE author_id=$6 AND id=$7`,[title, summary, content, category,file?.filename || null,,user_id,blog_id])
+        
+        if (result.rowCount >0){
+            res.redirect('/user_profile')
+        } else {
+            res.render('edit_blog', {error :"Blog Creation Failed"})
+        }
+    } catch(error) {
+        console.log(error)
+        res.status(500).render('edit_blog',{error : "Server Error"})
+    }
+})
+
+router.get('/blog/:id',async (req,res) => {
+    const blog_id = parseInt(req.params.id,10)
+    const blog = await pool.query(`SELECT * FROM blogs WHERE id =$1`,[blog_id])
+    if (blog.rowCount>0){
      res.render('sep-blog', {
-         blog : blog
+         blog : blog.rows[0]
      })
     } else {
         res.status(404).send("Blog Not Found")

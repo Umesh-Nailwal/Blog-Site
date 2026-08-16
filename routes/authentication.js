@@ -75,7 +75,9 @@ router.post('/login',async (req,res) => {
             req.session.user = {
                 id: user_data.id,
                 name: user_data.name,
-                email: user_data.email
+                email: user_data.email,
+                avatar: user_data.avatar,
+                banner: user_data.banner
             }
 
             // Save session to PostgreSQL session store
@@ -140,7 +142,9 @@ router.post('/register',async (req,res) => {
         req.session.user= {
             id: user_data.id,
             name: user_data.name,
-            email: user_data.email
+            email: user_data.email,
+            avatar: user_data.avatar,
+            banner: user_data.banner
         }
         req.session.save(err => {
             if (err) {

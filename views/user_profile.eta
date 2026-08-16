@@ -1,9 +1,9 @@
 <% layout('base', {title :"User Profile - BlogSphere"}) %>
  <div class="user-meta-profile">
     <a class="link-edit" href="/user_profile/edit_profile"><i class="fa-solid fa-pencil"></i></a>
-      <img class="user-banner" src="/public/default_banner.svg" alt="user banner">
+      <img class="user-banner" src=<%= `/authors/banner/${it.user.banner}` %> alt="user banner">
      <div class="user-meta-data">
-      <img class="user-pic-large" src="/public/default_avatar.png" alt="user photo">
+      <img class="user-pic-large" src=<%= `/authors/avatar/${it.user.avatar}` %> alt="user photo">
        <h1 class="user-name"><%= it.user.name %></h1>
       <p class="user-email"><%= it.user.email %></p>
      </div>
@@ -15,13 +15,20 @@
       <% if (it.user_blogs && it.user_blogs.length > 0) { %>
     <% it.user_blogs.forEach((blog) => { %>
       <article class="blog">
+         <div class="blog-meta-action">
+             <a href="/edit_blog/<%= blog.id %>" class="action-btn">
+    <i class="fa-solid fa-pen" style="color: rgb(116, 192, 252);"></i>
+</a>
+             <form action="<%= `/delete_blog/${blog.id}` %>" method="POST" enctype="multipart/form-data">
+                 <button class="action-btn" type="submit" ><i class="fa-solid fa-trash" style="color: rgb(214, 18, 18);"></i></button>
+              </form>
+         </div>
         <div class="image-meta">
-          <img width="400" class="blog-photo" src="<%= blog.image ? '/blog-image/' + blog.image : '/blog1.jpeg' %>" alt="<%= blog.title %>">
+          <img width="400" class="blog-photo" src="<%= '/blog-image/' + blog.image  %>" alt="<%= blog.title %>">
         </div>
-
         <section class="blog-details">
           <p class="blog-categories">
-            <span class="blog-category"><%= blog.category || 'General' %></span>
+            <span class="blog-category"><%= blog.category %></span>
           </p>
           <h2 class="title"><%= blog.title %></h2>
           <p class="blog-summary-short"><%= blog.summary %></p>
@@ -31,7 +38,6 @@
             <span class="blog-posted-date"><%= new Date(blog.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %></span>
           </div>
       </article>
-   </section>
     <% }) %>
   <% } else { %>
     <p>No blogs available right now.</p>

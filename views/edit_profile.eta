@@ -15,13 +15,13 @@
 
        <div class="form-group">
         <label>Profile Banner (Max size -5MB)</label>
-        <img class="user-banner" src="/public/default_banner.svg" alt="blog image">
+        <img class="user-banner" src=<%= `/authors/banner/default_banner.svg`  %> alt="profile banner">
         <input name="featured-file" type="file" accept="image/*" required>
       </div>
         
       <div class="form-group">
         <label>Profile Avatar (Max size -5MB)</label>
-        <img class="user-pic-large" src="/public/default_avatar.png" alt="blog image">
+        <img class="user-pic-large" src=<%= `/authors/avatar/default_avatar.png`  %> alt="profile avatar">
         <input name="featured-file" type="file" accept="image/*" required>
       </div>
 

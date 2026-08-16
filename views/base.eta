@@ -42,7 +42,7 @@
     </nav>
     <div class="user-meta">
       <a class="link" href="/user_profile">
-        <img src="/public/default_avatar.png" class="user-pic-small">
+        <img src=<%= `/authors/avatar/${it.user.avatar}` %> class="user-pic-small">
       </a>
     </div>
   <% } %>

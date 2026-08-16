@@ -1,31 +1,33 @@
 <% layout('base', {title :"Edit Blog - BlogSphere"}) %>
 <main class="form-main">
     <h2 class="form-heading">Edit Blog</h2>
-    <form action="/user_profile/edit_blog" method="POST" enctype="multipart/form-data">
+    <form action=<%= `/edit_blog/${it.blog.id}` %> method="POST" enctype="multipart/form-data">
       <section class="form-group">
         <label>Blog Title</label>
-        <input name="title" value="" type="text" required placeholder="Enter blog title">
+        <input name="title" value="<%= it.blog.title %>" type="text"  placeholder="Enter blog title">
       </section>
       <section class="form-group">
         <label>Summary</label>
-        <input name="summary" value="" type="text" required placeholder="Write a short summary">
+        <input name="summary" value="<%= it.blog.summary %>" type="text"  placeholder="Write a short summary">
       </section>
       <section class="form-group">
         <label>Blog Content</label>
-        <textarea name="content" required rows="12" cols="30" placeholder="Enter your blog..">content</textarea>
+        <textarea name="content" rows="12" cols="30" placeholder="Enter your blog.."><%= it.blog.content %></textarea>
       </section>
       <section class="form-group">
         <label>Category</label>
-        <select name="category" required multiple>
+        <select name="category" >
+           <option value="">Filter By</option>
           <option  value="Web Development">Web Development</option>
           <option value="AI">AI </option>
           <option value="Full Stack">Full Stack</option>
+          <option value="Others">Others</option>
         </select>
       </section>
       <section class="form-group">
         <label>Featured Image (Max size -5MB)</label>
-        <img class="blog-photo" src="" alt="blog image">
-        <input name="featured-file" type="file" accept="image/*" required>
+        <img class="blog-photo" src="<%=`/blog-image/${it.blog.image}` %>" alt="blog image">
+        <input name="featured-file" type="file" accept="image/*" >
       </section>
       <button type="submit" class="btn">Add Blog</button>
     </form>

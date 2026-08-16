@@ -4,19 +4,18 @@
     <section class="blog-hero-section">
       <div class="blog-date">
         <i class="fa-regular fa-calendar" ></i>
-      <span class="blog-posted-date"><%= new Date(it.blog.created_at|| it.blog.posted_date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %></span>
+      <span class="blog-posted-date"><%= new Date( it.blog.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %></span>
       </div>
       <h1 class="blog-title"><%= it.blog.title %></h1>
       <p class="blog-summary"> <%= it.blog.summary %></p>
       <p class="blog-categories">
         <span class="blog-category"><%= it.blog.category %></span>
-      <p>
+      </p>
     </section>
-    <section class="blog-main-img" style="background-image: url(<%= it.blog.blog_image %>);">
+    <section class="blog-main-img" style="background-image: url('<%= `/blog-image/${it.blog.image}` %>');">
     </section>
     <div class="blog-para" >
-       <%~ it.blog.description || it.blog.content %>
+       <%~ it.blog.content %>
     </div>
-  </section>
 <% } %>
   </main>

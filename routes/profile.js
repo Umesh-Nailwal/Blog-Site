@@ -4,6 +4,7 @@ const path = require('path')
 const login_required = require('../middleware/login_required')
 const pool = require('../db/database')
 const {upload_path} = require('../middleware/upload')
+
 router.get('/',login_required,async (req,res) => {
     const user_id = req.session.user.id
     const user_blogs = await pool.query(`

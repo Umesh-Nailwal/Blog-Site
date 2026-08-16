@@ -7,7 +7,7 @@
     </section>
     <% if(it.featured_blog){ %>
     <article class="featured-blog"
-      style="background-image: url(<%= it.featured_blog.blog_image %>)">
+      style="background-image: url(<%= `/blog-image/${it.featured_blog.image}` %>)">
         <section class="blog-meta-data">
       <section class="blog-details">
         <div>
@@ -19,12 +19,12 @@
       <section class="blog-meta" >
         <div class="blog-meta-header">
         <div class="author-details">
-          <img width="40" class="author-photo" src="<%= it.featured_blog.author_avatar %>" alt="author-photo">
-          <span class="author-name"><%= it.featured_blog.author_name %></span>
+          <img width="40" class="author-photo" src=<%= `/authors/avatar/${it.featured_blog.avatar}` %>  alt="author-photo">
+          <span class="author-name"><%= it.featured_blog.name %></span>
         </div>
         <div class="blog-date">
           <i class="fa-regular fa-calendar" style="color: rgb(224, 228, 233);"></i>
-          <span class="blog-posted-date"><%= it.featured_blog.posted_date  %></span>
+          <span class="blog-posted-date"><%= new Date( it.featured_blog.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %></span>
         </div>
       </div>
         
@@ -46,8 +46,10 @@
           <li><a class="link" href="#">User Experience</a></li>
         </ul>
       </nav>
-      <form class="search-bar" action="/" method="GET">
-        <input class="input-search-bar" type="text" name="q" placeholder="Searching...">
+      <form class="search-bar" action="/blogs" method="GET">
+        <input class="input-search-bar" type="text" name="q"
+          <% if(it.q){ %> value=<%= it.q %> <% } %>
+           placeholder="Searching...">
       </form>
     </section>
     
@@ -56,12 +58,12 @@
     <% it.blogs.forEach((blog) => { %>
       <article class="blog">
         <div class="image-meta">
-          <img width="400" class="blog-photo" src="<%= blog.blog_image || '/blog3.jpeg' %>" alt="<%= blog.title %>">
+          <img  class="blog-photo" src="<%= `/blog-image/${blog.image}` %>" alt="<%= blog.title %>">
         </div>
 
         <section class="blog-details">
           <p>
-            <span class="blog-category"><%= blog.category || 'General' %><span>
+            <span class="blog-category"><%= blog.category  %></span>
              </p>
           
           <h2 class="title"><%= blog.title %></h2>
@@ -71,11 +73,11 @@
        
         <section class="author-meta-data">
           <div class="author-details">
-            <img width="32" class="author-photo" src="<%= blog.author_avatar || '/default_avatar.png' %>" alt="author-photo">
-            <span class="author-name"><%= blog.author_name %></span>
+            <img width="32" class="author-photo" src="<%= `/authors/avatar/${blog.avatar}` %>" alt="author-photo">
+            <span class="author-name"><%= blog.name %></span>
           </div>
           <div class="blog-date">
-            <span class="blog-posted-date"><%= blog.posted_date %></span>
+            <span class="blog-posted-date"><%= new Date( blog.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %></span>
           </div>
         </section>
       </article>

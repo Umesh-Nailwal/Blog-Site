@@ -16,10 +16,12 @@
       </section>
       <section class="form-group">
         <label>Categories</label>
-        <select name="category" required="" >
+        <select name="category" required >
+          <option value="">Filter By</option>
           <option value="Web Development">Web Development</option>
           <option value="AI">Ai </option>
           <option value="Full Stack">Full Stack</option>
+          <option value="Others">Others</option>
         </select>
       </section>
       <section class="form-group">
