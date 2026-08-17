@@ -2,10 +2,16 @@ const multer = require("multer");
 const crypto = require('crypto')
 const path = require('path')
 
-const upload_path = path.join(__dirname,'../uploads/blog-image')
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, upload_path)
+    let subfolder =  "blog-image"
+    if (file.fieldname === "avatar") {
+      subfolder = "authors/avatar";
+    } else if (file.fieldname === "banner") {
+      subfolder = "authors/banner";
+    } 
+    cb(null, path.join(__dirname,'../uploads',subfolder))
   },
   filename: function (req, file, cb) {
     crypto.randomBytes(12, function(err, bytes) {
@@ -20,5 +26,5 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-module.exports = {upload, upload_path}
+module.exports = {upload}
 

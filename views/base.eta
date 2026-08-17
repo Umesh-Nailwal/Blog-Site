@@ -48,6 +48,22 @@
   <% } %>
    
   </header>
+<% if(it.error){ %>
+<section  class="popups" style="padding:24px">
+<p class="popup" id="pop-up"><%= it.error %></p>
+</section>
+<% } %>
+<% if (it.flash?.success?.length) { %>
+    <div class="popup success" id="popup">
+        <%= it.flash.success[0] %>
+    </div>
+<% } %>
+
+<% if (it.flash?.error?.length) { %>
+    <div class="popup error" id="popup">
+        <%= it.flash.error[0] %>
+    </div>
+<% } %>
   <%~ it.body %>
   <footer>
     <div>

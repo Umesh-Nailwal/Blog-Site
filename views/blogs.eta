@@ -10,46 +10,35 @@
       <form  action="/blogs" method="GET">
         <section class="form-group">
           <label>Label</label>
-          <input name="q" type="text" <% if(it.q){ %> value=<%= it.q %> <% } %> placeholder="Search article..">
+          <input class="blog-filters" name="q" type="text" <% if(it.q){ %> value=<%= it.q %> <% } %> placeholder="Search article..">
         </section>
         <section class="form-group">
           <label>Filters</label>
-          <select name="order_by"  >
+          <select class="blog-filters" name="order_by"  >
               <option >Filter By</option>
-            <option <% if(it.order_by) { %> selected <% } %>
+            <option <% if(it.order_by === "ASC") { %> selected <% } %>
              value="ASC" >Published date(Ascending)</option>
-            <option <% if(it.order_by) { %> selected <% } %>
+            <option <% if(it.order_by === "DESC") { %> selected <% } %>
              value="DESC">Published date(Descending)</option>
           </select>
+         </section>
+          <section class="form-group">
+           <label>Browse By Category</label>
+          <select class="blog-filters" name="category">
+          <option <% if(it.category === "") { %> selected <% } %> value="">All</option>
+          <option <% if(it.category === "Web Development") { %> selected <% } %> value="Web Development">Web Development</option>
+          <option <% if(it.category === "AI & Machine Learning") { %> selected <% } %> value="AI & Machine Learning">AI & Machine learning </option>
+          <option <% if(it.category === "Full Stack") { %> selected <% } %> value="Full Stack">Full Stack</option>
+          <option <% if(it.category === "Programming") { %> selected <% } %> value="Programming">Programming</option>
+          <option <% if(it.category === "Backend Development") { %> selected <% } %> value="Backend Development">Backend Development</option>
+          <option <% if(it.category === "Cybersecurity") { %> selected <% } %> value="Cybersecurity">Cybersecurity</option>
+          <option <% if(it.category === "Full Stack") { %> selected <% } %> value="Full Stack">Full Stack</option>
+          <option <% if(it.category === "Tech") { %> selected <% } %> value="Tech">Tech</option>
+           </select>
         </section>
       <button type="submit" class="btn" >Apply Filters</button>
       </form>
-    </section>
-    
-    <section >
-      <label >Browse By Category</label>
-      <ul class="category-filters list">
-        <li><a class="link" href="/blogs">All Category</a></li>
-        <li><a class="link" href="#" >UI/UX Design</a></li>
-        <li><a class="link" href="#" >Machnine Learning</a></li>
-        <li><a class="link" href="#" >Artificial Intelligence</a></li>
-        <li><a class="link" href="#" >Networking</a></li>
-        <li><a class="link" href="#" >Gaming</a></li>
-        <li><a class="link" href="#" >UI/UX Design</a></li>
-        <li><a class="link" href="#" >Web Development</a></li>
-        <li><a class="link" href="#" >Backend Development</a></li>
-        <li><a class="link" href="#" >Cloud Computing</a></li>
-        <li><a class="link" href="#" >DevOps</a></li>
-        <li><a class="link" href="#" >Design</a></li>
-        <li><a class="link" href="#" >Programming</a></li>
-        <li><a class="link" href="#" >Tech</a></li>
-        <li><a class="link" href="#" >Things</a></li>
-        <li><a class="link" href="#" >Human Resource</a></li>
-        <li><a class="link" href="#" >News</a></li>
-        <li><a class="link" href="#" >Entertainment</a></li>
-      </ul>
-    </section>
-      
+    </section> 
     </aside>
 
      <div class="overlay" id="overlay"></div>

@@ -17,11 +17,15 @@
       <section class="form-group">
         <label>Category</label>
         <select name="category" >
-           <option value="">Filter By</option>
-          <option  value="Web Development">Web Development</option>
-          <option value="AI">AI </option>
+          <option value="">Filter By</option>
+          <option value="Web Development">Web Development</option>
+          <option value="AI & Machine Learning">AI & Machine learning </option>
           <option value="Full Stack">Full Stack</option>
-          <option value="Others">Others</option>
+          <option value="Programming">Programming</option>
+          <option value="Backend Development">Backend Development</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Full Stack">Full Stack</option>
+          <option value="Tech">Tech</option>
         </select>
       </section>
       <section class="form-group">
@@ -29,6 +33,6 @@
         <img class="blog-photo" src="<%=`/blog-image/${it.blog.image}` %>" alt="blog image">
         <input name="featured-file" type="file" accept="image/*" >
       </section>
-      <button type="submit" class="btn">Add Blog</button>
+      <button type="submit" class="btn">Edit Blog</button>
     </form>
   </main>

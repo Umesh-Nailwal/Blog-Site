@@ -7,6 +7,7 @@ const PORT = 3000
 const pgSession = require('connect-pg-simple')(session)
 const pool = require('./db/database')
 
+
 const { Eta } = require('eta')
 const view_path = path.join(__dirname,'views')
 const blogRouter = require('./routes/blogs')
@@ -34,7 +35,7 @@ app.use(session({
         tableName: 'session',
         createTableIfMissing: true
     }),
-    secret: "super-secret-session-key",
+    secret: 'super_secret_key',
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -45,6 +46,7 @@ app.use(session({
 }))
 app.set('views', view_path);
 app.set('view engine', 'eta');
+app.set('trust proxy', 1)
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())

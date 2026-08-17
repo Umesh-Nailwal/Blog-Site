@@ -7,15 +7,29 @@ const login_required = require('../middleware/login_required')
 const {blog_validation }= require('../middleware/validate_input')
 
 router.get('/',async (req,res) => {
-    const blogs = await pool.query(`SELECT blogs.id, blogs.title, blogs.summary, blogs.category, blogs.content,
-    blogs.image , blogs.created_at, users.name, users.avatar FROM blogs JOIN users ON blogs.author_id=users.id ORDER BY blogs.created_at DESC`)
-    const featured_blog= blogs.rows[0]
-    res.render('index', {blogs: blogs.rows , featured_blog: featured_blog})
+    const { q } = req.query
+    const conditions =[]
+    const values =[]
+    if (q){
+        values.push(`${q}`)
+        conditions.push(`blogs.category= $${values.length}`)
+    }
+
+    let sql= `SELECT blogs.id, blogs.title, blogs.summary, blogs.category, blogs.content,
+     blogs.image , blogs.created_at, users.name, users.avatar FROM blogs JOIN users ON blogs.author_id=users.id `
+    let featured_blog= await pool.query(sql+` ORDER BY blogs.created_at ASC LIMIT 1`)
+    if(conditions.length >0){
+        sql+= `WHERE ${conditions.join("")}`
+    }
+    sql +=` ORDER BY blogs.created_at ASC LIMIT 9`
+    
+    
+    const blogs = await pool.query(sql, values)
+    res.render('index', {blogs: blogs.rows , featured_blog: featured_blog.rows[0]})
 })
 
 router.get('/blogs',async (req,res) => {
-    const { q, order_by} = req.query
-    const filters=null
+    const { q, order_by, category} = req.query
     const conditions =[]
     const values =[]
     if (q){
@@ -25,8 +39,8 @@ router.get('/blogs',async (req,res) => {
         OR blogs.content ILIKE $${values.length})`)
         
     }
-    if (filters){
-        values.push(`${filters}`)
+    if (category){
+        values.push(`${category}`)
         conditions.push(`blogs.category= $${values.length}`)
     }
     let sql= `
@@ -34,15 +48,15 @@ router.get('/blogs',async (req,res) => {
     blogs.image , blogs.created_at, users.name, users.avatar FROM blogs JOIN users ON blogs.author_id=users.id `
     
     if(conditions.length >0){
-        sql+= `WHERE ${conditions.join('AND ')}`
+        sql+= `WHERE ${conditions.join(' AND ')}`
     }
     const order = order_by === "ASC"?"ASC":"DESC"
-    sql+= `ORDER BY blogs.created_at ${order}`
+    sql+= ` ORDER BY blogs.created_at ${order}`
     const blogs = await pool.query(sql,values)
-    
     res.render('blogs', {blogs: blogs.rows,
         q: q || null, 
-        order_by: order_by || null
+        order_by: order_by || null,
+        category: category ||null
     })
 })
 
@@ -105,7 +119,7 @@ router.post('/edit_blog/:id',login_required,upload.single("file"),async (req,res
         
         const result = await pool.query(`UPDATE 
         blogs SET title=COALESCE($1, title), summary=COALESCE($2, summary), content=COALESCE($3, content), category=COALESCE($4,category), image=COALESCE($5, image)
-        WHERE author_id=$6 AND id=$7`,[title, summary, content, category,file?.filename || null,,user_id,blog_id])
+        WHERE author_id=$6 AND id=$7`,[title, summary, content, category,file?.filename || null,user_id,blog_id])
         
         if (result.rowCount >0){
             res.redirect('/user_profile')

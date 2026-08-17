@@ -17,11 +17,14 @@
       <section class="form-group">
         <label>Categories</label>
         <select name="category" required >
-          <option value="">Filter By</option>
           <option value="Web Development">Web Development</option>
-          <option value="AI">Ai </option>
+          <option value="AI & Machine Learning">AI & Machine learning </option>
           <option value="Full Stack">Full Stack</option>
-          <option value="Others">Others</option>
+          <option value="Programming">Programming</option>
+          <option value="Backend Development">Backend Development</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Full Stack">Full Stack</option>
+          <option value="Tech">Tech</option>
         </select>
       </section>
       <section class="form-group">

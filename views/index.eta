@@ -40,10 +40,10 @@
       <nav class="category-links">
 
         <ul class="vertical list">
-          <li><a class="link" href="#">All</a></li>
-          <li><a class="link" href="#">Design</a></li>
-          <li><a class="link" href="#">Entertainment</a></li>
-          <li><a class="link" href="#">User Experience</a></li>
+          <li><a class="link" href="/">All</a></li>
+          <li><a class="link" href="/?q=Tech">Tech</a></li>
+          <li><a class="link" href="/?q=Programming">Programming</a></li>
+          <li><a class="link" href="/?q=Cybersecurity">Cybersecurity</a></li>
         </ul>
       </nav>
       <form class="search-bar" action="/blogs" method="GET">

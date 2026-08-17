@@ -106,7 +106,7 @@ router.post('/login',async (req,res) => {
 router.post('/register',async (req,res) => {
     
     try {
-        let { fullname, email , password, confmPass } = req.body
+        let { name, email , password, confmPass } = req.body
         email = email?.trim()
         fullname = fullname?.trim()
         if(!fullname) {

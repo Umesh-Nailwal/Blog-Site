@@ -30,25 +30,14 @@ if (filterClose) filterClose.addEventListener('click', closeFilter);
 if (overlay) overlay.addEventListener('click', closeFilter);
 
 const pop_up = document.getElementById('pop-up')
-/*async function register(){
-try {
-const response = await fetch('/auth/register',{
-  method: "POST",
-  headers : {
-    "Content-Type" :  "application/json"
-  },
-  body : JSON.stringify(data)
-  
-});
-const result = await response.json()
-if (! response.ok){
-  pop_up.textContent = result.error
-}
-} catch (eror) {
-  console.log(eror)
-  pop_up.textContent = "Network or server Error. Please try again.";
-}
-}*/
 
+    if (pop_up) {
+        setTimeout(() => {
+            popup.classList.add('hide');
 
+            setTimeout(() => {
+                popup.remove();
+            }, 300);
 
+        }, 3000);
+    }
