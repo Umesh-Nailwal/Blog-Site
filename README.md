@@ -98,6 +98,7 @@ Development & Deployment
 🏗️ Application Architecture
 
 Browser
+
    │
    
    ▼
