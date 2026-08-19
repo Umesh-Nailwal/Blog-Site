@@ -99,11 +99,10 @@ Development & Deployment
 
 Browser
 
-   │
-   
+   │ 
    ▼
-Express.js Server
-   │
+   Express.js Server
+   |
    ├── Routes
    │     ├── Authentication
    │     ├── Blogs
