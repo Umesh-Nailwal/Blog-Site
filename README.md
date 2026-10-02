@@ -313,8 +313,6 @@ Example:
 DATABASE_URL=your_database_url
 SESSION_SECRET=your_secret
 
-Do not put real database credentials or session secrets in this README.
-
 ---
 
 🌐 Live Demo
@@ -327,7 +325,6 @@ Do not put real database credentials or session secrets in this README.
 
 📸 Screenshots
 
-You can add screenshots of the major pages here:
 
 Home Page
 
